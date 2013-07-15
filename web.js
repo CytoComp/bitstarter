@@ -14,8 +14,8 @@ app.get('/', function(request, response) {
  // response.send('Hello World2!');
 response.send(filecatch)
 });
-
-var port = process.env.PORT || 5000;
+//changed port from 5000 to 8080
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
