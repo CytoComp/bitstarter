@@ -122,6 +122,12 @@ height: 100%; }
 /* changed width from 180 to 250*/
   width:250px;
   margin: 0 auto;
+}
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+.flex-video { padding-top: 0; }
+}
+
+
  }
     </style>
 <!-- Google analytics ga.js  -->
@@ -187,8 +193,8 @@ height: 100%; }
         <div class="span5 offset1 video">
     <!--         <img class="img-polaroid" src="http://youtu.be/BMRqKVktvhs/480x300">  -->
 <!-- add alt=   <img class="img-polaroid" alt="Placeholder" src="http://placehold.it/480x300">   -->
-<iframe width="480" height="360" alt="CytoComp" src="//www.youtube.com/embed/BMRqKVktvhs" frameborder="0" allowfullscreen></iframe>
-
+<!-- <iframe width="480" height="360" alt="CytoComp" src="//www.youtube.com/embed/BMRqKVktvhs" frameborder="0" allowfullscreen></iframe> -->
+<div class="flex-video widescreen"><iframe alt="CytoComp" src="//www.youtube.com/embed/BMRqKVktvhs" frameborder="0" allowfullscreen=""></iframe></div>
        </div>
 
         <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
@@ -261,7 +267,7 @@ type="text/javascript"></script>
 <a class="addthis_button_preferred_1"></a>
 <a class="addthis_button_preferred_2"></a>
 <a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
+<!--   <a class="addthis_button_preferred_4"></a>   -->
 <a class="addthis_button_compact"></a>
 <a class="addthis_counter addthis_bubble_style"></a>
 </div>
