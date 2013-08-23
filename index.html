@@ -144,6 +144,51 @@ height: 100%; }
   })();
 
 </script>
+
+<!-- added timer script -->
+<script>
+
+    CountDownTimer('08/23/2013 4:1 AM', 'countdown');
+    CountDownTimer('09/08/2013 23:59 PM', 'newcountdown');
+
+    function CountDownTimer(dt, id)
+    {
+        var end = new Date(dt);
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+
+                clearInterval(timer);
+                document.getElementById(id).innerHTML = 'EXPIRED!';
+
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            document.getElementById(id).innerHTML = days + 'days ';
+            document.getElementById(id).innerHTML += hours + 'hrs ';
+            document.getElementById(id).innerHTML += minutes + 'mins ';
+            document.getElementById(id).innerHTML += seconds + 'secs';
+        }
+
+        timer = setInterval(showRemaining, 1000);
+    }
+
+</script>
+<div id="countdown"></div>
+<div id="newcountdown"></div>
+
   </head>
   <body>
 
@@ -328,8 +373,8 @@ a thank you email<BR>
 as above and a CytoComp info letter and mentioning on our web page<BR>
 <b> Pledge of $ 99 (0.99 Bitcoins) or more</b><BR>
 obs! limited to 100<BR>
-all above and exclusive early developer access to CytoComp`s CAD (computer assisted design platform, which allows you to custom design a biological microprocessor), SDK and API. Although the software will be made open source by August 2014, CytoComp will give developers an exclusive opportunity to be part of this revolution, and to be early on the market with their apps. 
-estimated delivery: Dec 2013<BR>
+all above and exclusive early developer access to CytoComp`s CAD (computer assisted design platform, which allows you to custom design a biological microprocessor), SDK and API. Although the software will be made open source by August  2014, CytoComp will give developers an exclusive opportunity to be part of this revolution, and to be early on the market with their apps. 
+estimated delivery: Dec 2014<BR>
 <b> Pledge of $ 1000 (10 Bitcoins) or more</b><BR>
 all above and exclusive access to CytoComp`s developer meetings, and three personal online meetings with the CEO of CytoComp<BR>
           </p>
