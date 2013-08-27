@@ -25,6 +25,10 @@ app.get('/', function(request, response) {
 app.get('/', function(request, response) { 
 global.db.Order.findAndCountAll().success(function(result) {
 //global.db.Order.findAll().success(function(orders) { 
+
+//number of backers paying more than 1 BTC
+var cadBackers = 0;
+
 var amount = 0;
     result.rows.forEach(function(order) {
       amount += order.amount
@@ -32,11 +36,17 @@ var amount = 0;
 //amount fix no of digits
 amount = Math.round(amount*10000)/10000;
 
-    response.render("home", {backers: result.count, amount: amount, percent: amount});
+//as percent = amount, one need to normalize to max amount(percent) as 100
+
+if (amount > 100) amount = 100;
+
+
+    response.render("home", {backers: result.count, amount: amount, percent: amount, cadBackers: cadBackers});
   }).error(function(err) {
     console.log(err);
     response.send("error in loading information from database to home page");
   });
+
 });
 
 // Render example.com/orders
