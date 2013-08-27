@@ -13,9 +13,28 @@ app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
 
 // Render homepage (note trailing slash): example.com/
+
+// modified 
+/*
 app.get('/', function(request, response) {
   var data = fs.readFileSync('index.html').toString();
   response.send(data);
+});
+*/
+
+app.get('/', function(request, response) { 
+global.db.Order.findAndCountAll().success(function(result) {
+//global.db.Order.findAll().success(function(orders) { 
+var amount = 0;
+    result.rows.forEach(function(order) {
+      amount += order.amount
+    });
+
+    response.render("home", {backers: result.count, amount: amount, percent: amount});
+  }).error(function(err) {
+    console.log(err);
+    response.send("error in loading information from database to home page");
+  });
 });
 
 // Render example.com/orders
