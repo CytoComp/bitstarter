@@ -29,6 +29,8 @@ var amount = 0;
     result.rows.forEach(function(order) {
       amount += order.amount
     });
+//amount fix no of digits
+amount = Math.round(amount*10000)/10000;
 
     response.render("home", {backers: result.count, amount: amount, percent: amount});
   }).error(function(err) {
