@@ -26,8 +26,8 @@ app.get('/', function(request, response) {
 global.db.Order.findAndCountAll().success(function(result) {
 //global.db.Order.findAll().success(function(orders) { 
 
-//number of backers paying more than 1 BTC
-var cadBackers = 0;
+//out commented number of backers paying more than 1 BTC
+//var cadBackers = 0;
 
 var amount = 0;
     result.rows.forEach(function(order) {
@@ -40,8 +40,8 @@ amount = Math.round(amount*10000)/10000;
 
 if (amount > 100) amount = 100;
 
-
-    response.render("home", {backers: result.count, amount: amount, percent: amount, cadBackers: cadBackers});
+// removed , cadBackers: cadBackers
+    response.render("home", {backers: result.count, amount: amount, percent: amount});
   }).error(function(err) {
     console.log(err);
     response.send("error in loading information from database to home page");
