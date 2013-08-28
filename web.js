@@ -26,7 +26,7 @@ app.get('/', function(request, response) {
 global.db.Order.findAndCountAll().success(function(result) {
 //global.db.Order.findAll().success(function(orders) { 
 
-//out commented the number of backers paying more than 1 BTC
+//out commented the number of backers paying more than 1 BTC cahnged the rewarsd test
 //var cadBackers = 0;
 
 var amount = 0;
